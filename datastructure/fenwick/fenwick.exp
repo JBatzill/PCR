@@ -1,0 +1,3 @@
+Fenwick tree (also called BIT) is a binary indexed tree. value at index i saves value for (i-lsbs(i)+1) to i.
+To set a value, all intervals containing the index must be updated. The next bigger interval containing i is i + lsbs(i)
+To get the value for [1,i], calculate ft[i] + value(i - lsbs(i)) 
