@@ -1,0 +1,5 @@
+The convex hull algorithm first calculates the lower hull and then the upper hull.
+if there are:
+	+ 0,1 point in the vector, the algorithm returns an empty list
+	+ 2 points in the vector, the algorithm returns the 2 points
+	+ only colinear points in the vector, the algorithm returns the two outer ones
