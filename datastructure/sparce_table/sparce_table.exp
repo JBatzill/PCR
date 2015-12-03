@@ -1,0 +1,11 @@
+https://www.topcoder.com/community/data-science/data-science-tutorials/range-minimum-query-and-lowest-common-ancestor/#Sparse_Table_(ST)_algorithm
+To answer a rmq in O(1) we precalculate the minimum for every interval of size 2^j <= RMQ_SIZE.
+rmq[j][x] is the index of the minimum value of the interval [x, x+2^j]
+
+Precalculation can be down with DP by using the values of the intervals of size 2^(j-1).
+
+
+To answer a query [a, b):
+	calc the max j such that 2^j <= (b-a) = query interval length
+	return minimum of [a, a+2^j) and [b-2^j, b) by checking values at rmq[j][a] and rmq[j][b-2^j]
+	(works because 2*(2^j) > (b-a)) and 2^j <= (b-a) by construction)
