@@ -1,3 +1,4 @@
+[Andrew's monotone chain convex hull algorithm]
 The convex hull algorithm first calculates the lower hull and then the upper hull.
 if there are:
 	+ 0,1 point in the vector, the algorithm returns an empty list
