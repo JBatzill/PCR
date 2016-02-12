@@ -1,4 +1,4 @@
-The abs of the cross product of two vectors is equals the half of the area of the triangle defined by the two vectors!
+The abs of the cross product of two vectors is equals to two times the area of the triangle defined by the two vectors!
 a X b = |a| * |b| * cos(alpha)   where alpha is equals to the angle between the two vectors.
 
-|a| * |b| * cos(alpha) is 2 times the area of the diamond defined by a and b
+|a| * |b| * cos(alpha) is equals to the area of the diamond defined by a and b
