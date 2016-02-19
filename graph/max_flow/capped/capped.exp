@@ -1,0 +1,11 @@
+Calculates the maximum flow by only using edges with weight >= cap. divide cap by 2 if dfs does not find
+a path between s and t with weight >= cap for each edge of the path. Repeat while cap > 0.
+
+For a fixed cap, calling dfs while possible is like finding the max flow in the graph with edgeweight = 1 if weight >= cap
+and 0 otherwise.
+(Reason for log(C) factor, has to be done for each possible value of cap)
+
+Initialize the graph as follows:
+
+		graph[u].pb(edge {v, (int)graph[v].size(), (ll)c});
+		graph[v].pb(edge {u, (int)graph[u].size() - 1, 0L});
