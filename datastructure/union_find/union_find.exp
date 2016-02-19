@@ -1,0 +1,15 @@
+The datastructure saves the following:
+	uf[i] < 0  => i represents the set,
+				  -uf[i] is an upper bound on the height of the set
+	uf[i] >= 0 => i does not represent the set,
+				  uf[i] is the parent of i
+				  (Following the parents of the elements leads to the representative of the set)
+				  
+				  
+Based on that, the initial value of uf is -1.
+
+Two optimizations are implemented:
+- union-by-height: try to minimize the height,
+				   attach the smaller set to the bigger one (in terms of their max. height)
+- path-compression: calling find(idx) sets the parents of all elements on the path 
+				    from idx to the representative of the set containing idx to find(idx)

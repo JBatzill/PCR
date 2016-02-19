@@ -1,5 +1,4 @@
 //Link to problem: https://open.kattis.com/problems/fenwick
-//Link to problem: https://open.kattis.com/problems/fenwick
 
 #include <bits/stdc++.h>
 
