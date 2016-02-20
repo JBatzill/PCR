@@ -1,0 +1,44 @@
+[v1,v2,...]:
+	variables
+
+[str]
+	input/output format
+	
+	~ input format specifier: %[*][width][length]specifier
+	~ output format specifier: %[flags][width][.precision][length]specifier 
+	
+	[width]: ~ min num to be printed
+		     ~ max num to be read
+	
+	[length]: size of datatype...
+	
+	[.prescision]: min num of digits to be printed
+	
+	[*]: don't save this input
+	
+	[flags]: + force sign
+			 - left-justify (std: right-justify) within the given field width
+			 (space) no sign written => blank space before value
+			 # value type o,x,X => 0,0x,0X
+    		   value type number => force decimal point
+			   
+	specifier:
+		d,i:    signed decimal integer
+		u:      unsigned decimal integer
+		o,x:    unsigned octal, hexadecimal,
+		f:      decimal floating point
+		e:      scientific
+		g:      shorter repr.: e or f
+		a:      hexadecimal floating point
+		c:      character
+		s:      string
+		p:      pointer address
+		n:      "nothing" printed, arg must be signed int
+		%:      %% will write a single %
+		
+		[str]:  any num of the chars specified between the brackets
+		[^str]: any num of the chars none of the specified between the brackets
+		
+		[if a numerical repr. contains letters, then the UPPERCASE version creates an UPPERCASE output
+		 and the lowercase version creates an lowercase output]
+		
