@@ -1,0 +1,22 @@
+The precalculation is a slightly changed sieve of eratosthenes.
+Instead of memorizing whether a number is prime or not, it memorizes the smallest prime number that 
+divides the number.
+
+Using this data, it is possible to get all prime divisors of a number in O(log(n)):
+The unique list for n is equals to the smallest prime number p that divides n, combined with
+the unique list of prime factors of (n/d).
+[it works because the integer factorization of a natural number is unique]
+
+
+Optimization:
+	- to be able to stop at sqrt(MAX) in the main for-loop, the std. value of sd[i] is set to i.
+	  if sd[i] is still i once the main for-loop processes i, then it is not divisible by any 1 < j < i
+	  and therefore sd[i] already contains the correct value.
+	  if sd[i] < i, then sd[i] is the smallest prime number that divides i and was set to some j <= sqrt(i)
+	  (since any number n that is not prime has a prime divisor <= sqrt(n))
+	  
+	- the nested for loop starts at i*i, since 2i, ...., (i-1)i is div. by 2, ..., (i-1) and therefore
+	  sd already contains the smallest divisor (2,...,i-1 < i).
+	  
+	- the step-length of the nested loop is i<<1 := 2*i, since (i*i) + (2*i)*n + i is even and therefore its value of
+	  sd is already set to 2.
