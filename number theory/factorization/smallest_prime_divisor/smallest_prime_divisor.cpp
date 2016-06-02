@@ -8,7 +8,7 @@ void pre() {
 	sd[0] = sd[1] = 0;
 	for(int i = 2; i <= PRIME_MAX; i++) sd[i] = (i % 2 == 0 ? 2 : i);
 	
-	for(ll i = 3; i * i <= PRIME_MAX; i++) {
+	for(ll i = 3; i * i <= PRIME_MAX; i+=2) {
 		if(sd[i] == i) {
 			for(ll n = i*i; n <= PRIME_MAX; n += (i<<1)) {
 				if(sd[n] == n) sd[n] = i;
