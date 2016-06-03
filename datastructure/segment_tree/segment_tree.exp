@@ -1,0 +1,3 @@
+Creates a binary tree where a node saves the minimum of its two children.
+(to build a binary tree on 2^n leaves we need 2^n-1 nodes)
+(classis tree datastructure, root has idx 1, get childs with 2*n, 2*n+1)

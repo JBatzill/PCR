@@ -1,0 +1,20 @@
+Calculates the lowest-common-ancestor of two nodes u,v in a rooted tree.
+
+mapping:
+Since, in general, the lca doesn't always have to be a node with an index at most the minimum 
+of the nodes u and v, it's necessary to create a new indexing while dfs and safe the mapping 
+from the new index to the actual index of the node. In dfs we give a node the smallest 
+index possible when we visit him the first time. This way, an ancestor always 
+has a smaller index.
+
+first:
+saves the time stamp of the first time a node is visited
+
+vis:
+saves the order of nodes we visited (using the new indexing)
+
+lca:
+Get the lca by looking for the smallest (new) index between the first time we visited u 
+and the first time we visited v (in vis). This index is the lca since it's the 
+highest point we needed to go in order to get from u to v.
+To get the actual index of the lca use the mapping.
