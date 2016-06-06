@@ -1,0 +1,20 @@
+The algorithm checks whether k can be represented as a linear kombination of g using
+non negative integers only.
+
+To solve the problem we create a graph with a node for each modulo class of the smallest element m
+(works for each element, but smallest element produces less nodes).
+There is an edge between two nodes i and j iff there is an element gi s.t. (i + gi) % m = j
+
+The important insight is the following:
+  - If there is a path (length <= k) in g from 0 to k % m, we are able to
+    sum up elements of gi s.t. sum % m = k % m  and sum <= k.
+	Thus, sum - k = l * m and therefore k can be written as linear combination
+  - If k can be written as linear combination, we can start at 0 and follow the
+    edges represented by the summands to get to k % m (len path <= k, obviously)
+	
+
+Runtime:
+   - Dijkstra runs in O(E*log(V))
+   - |V| = min(g)
+   - |E| <= #nodes * #moves <= min(g) * |g|
+	

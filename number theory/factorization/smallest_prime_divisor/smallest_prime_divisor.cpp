@@ -1,6 +1,6 @@
 //stores the smallest prime divisor for each i <= PRIME_MAX <= 10^8
 const int PRIME_MAX = 100000;
-int sd[PRIME_MAX];
+int sd[PRIME_MAX+1];
 
 //precalculates the smallest primefactor for each i <= PRIME_MAX
 //O(n*log(log(n)))
