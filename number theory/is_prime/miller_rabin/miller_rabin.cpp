@@ -1,6 +1,6 @@
 //theoretical: n < 318,665,857,834,031,151,167,461 ( > 10^23)
 //but: n ~<= 10^18 (because of MAX(ll))
-//O(37*log²n)
+//O(37*logn^2)
 bool isPrime(ll n) {
 	if(n == 2) return true;
 	if(n < 2 || n % 2 == 0) return false;

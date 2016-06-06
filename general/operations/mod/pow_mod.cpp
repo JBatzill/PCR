@@ -1,4 +1,5 @@
 //0<=a,b<=n and n <= MAX(ll)/2
+//O(logn^2)
 ll pow_mod(ll a, ll b, ll n) {
 	if(b == 0) return 1;
 	if(b == 1) return a % n;

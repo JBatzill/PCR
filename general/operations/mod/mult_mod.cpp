@@ -1,4 +1,5 @@
 //0<=a,b <=n and n <= MAX(ll)/2
+//O(logn)
 ll mult_mod(ll a, ll b, ll n) {
 	if(a == 0 || b == 0) return 0;
 	if(b == 1) return a % n;
