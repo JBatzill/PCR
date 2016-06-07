@@ -311,8 +311,8 @@ ll ccw(point2 p1, point2 p2, point2 p3) {
 }'''
 
 
-    'types':
-        'prefix': 'pcr_types'
+    'geometry_types':
+        'prefix': 'pcr_geometry_types'
         'body': '''typedef struct { ll x, y; } point2;
 point2 operator+(const point2 &p1, const point2 &p2) {
 	return (point2 {p1.x + p2.x, p1.y + p2.y});
@@ -440,8 +440,8 @@ int lca(int u, int v) {
 }'''
 
 
-    'capped':
-        'prefix': 'pcr_capped'
+    'max_flow_capped':
+        'prefix': 'pcr_max_flow_capped'
         'body': '''typedef struct {
 	int dest, idx; ll weight;
 } edge;
