@@ -1,0 +1,5 @@
+Extend the segment tree to save for each node whether its children
+are up to date or need to be switched in order to get their correct value.
+Then, instead of switching each element of the query interval, switch intervals
+represented by inner nodes of the segment tree by simply "inverting" their value and memorizing 
+whether we need to switch its childs in order to get their correct value

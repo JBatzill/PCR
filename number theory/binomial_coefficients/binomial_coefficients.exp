@@ -1,0 +1,8 @@
+Calculates the binomial coefficient by starting at n=k and increasing n step by step
+(pyramid context: start at right border and move parallel to left border)
+since the values are symmetric, and for k < n/2 (n-k) is closer to the right border,
+its always better to calc the value for the one in the right half of the pyramid.
+
+	|n+1|	  n! * (n+1)			 n! * (n+1)			 | n |	   (n+1)
+	|	| = _______________ = ________________________ = |	 | * _________
+	| k |	 k! * (n+1-k)!		k! * (n-k)! * (n+1-k)	 | k |	  (n+1-k)
