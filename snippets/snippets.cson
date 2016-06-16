@@ -49,6 +49,11 @@ ll getRange(int l, int r) {
 }'''
 
 
+    'link_cut_tree':
+        'prefix': 'pcr_link_cut_tree'
+        'body': ''''''
+
+
     'segment_tree':
         'prefix': 'pcr_segment_tree'
         'body': '''int base;
@@ -339,6 +344,35 @@ ll ccw(point2 p1, point2 p2, point2 p3) {
 }'''
 
 
+    'cross_product':
+        'prefix': 'pcr_cross_product'
+        'body': '''//cross product in 2d is the z coordinate of the cross product of the vectors in 3d with z = 0
+ll X2(point2 p1, point2 p2) {
+	return (p1.x * p2.y) - (p1.y * p2.x);
+}
+
+ll X3(point3 p1, point3 p2) {
+	point3 res;
+	res.x = (p1.y * p2.z) - (p1.z * p2.y);
+	res.y = (p1.z * p2.x) - (p1.x * p2.z);
+	res.z = (p1.x * p2.y) - (p1.y * p2.x);
+	return res;
+}'''
+
+
+    'euclidean_distance':
+        'prefix': 'pcr_euclidean_distance'
+        'body': '''//returns the square of the eucl. dist
+double dist2(double x1, double y1, double x2, double y2) {
+    return (x1-x2)*(x1-x2)+(y1-y2)*(y1-y2);
+}
+//returns the eucl dist
+double dist(double x1, double y1, double x2, double y2) {
+    return sqrt(dist2(x1, y1, x2, y2));
+}
+'''
+
+
     'geometry_types':
         'prefix': 'pcr_geometry_types'
         'body': '''typedef struct { ll x, y; } point2;
@@ -358,20 +392,13 @@ point3 operator-(const point3 &p1, const point3 &p2) {
 }'''
 
 
-    'cross_product':
-        'prefix': 'pcr_cross_product'
-        'body': '''//cross product in 2d is the z coordinate of the cross product of the vectors in 3d with z = 0
-ll X2(point2 p1, point2 p2) {
-	return (p1.x * p2.y) - (p1.y * p2.x);
+    'law_of_cosinus':
+        'prefix': 'pcr_law_of_cosinus'
+        'body': '''//returns angle on the opposite side of o for triangle l,o,r
+double lawOfCosinus(double l, double r, double o) {
+    return acos((l*l+r*r-o*o) / (2*l*r));
 }
-
-ll X3(point3 p1, point3 p2) {
-	point3 res;
-	res.x = (p1.y * p2.z) - (p1.z * p2.y);
-	res.y = (p1.z * p2.x) - (p1.x * p2.z);
-	res.z = (p1.x * p2.y) - (p1.y * p2.x);
-	return res;
-}'''
+'''
 
 
     'convex_hull':
