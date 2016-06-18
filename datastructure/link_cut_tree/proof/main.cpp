@@ -37,23 +37,6 @@ typedef struct node {
     ll val;
 } node;
 
-
-node t1, t2, t3, t4, t5;
-
-void print(node *u) {
-    cout << "node " << u->val;
-    cout << " l: " << (u->l == NULL ? -1 : u->l->val);
-    cout << " r: " << (u->r == NULL ? -1 : u->r->val);
-    cout << " p: " << (u->p == NULL ? -1 : u->p->val);
-    cout << " pp: " << (u->pp == NULL ? -1 : u->pp->val);
-    cout << " pav: " << weights[(u->pav)];
-    cout << endl;
-}
-
-void printAllNodes() {
-    print(&t1); print(&t2); print(&t3); print(&t4); print(&t5); cout << endl;
-}
-
 //update data (min/max/sum edge/node usw), called iff new childs
 void update(node *v) {
     //set v->pav based on operation
@@ -319,34 +302,22 @@ void solve() {
 
     int end = 0;
     for(query &qq: queries) {
-        for(int i = end; i <= qq.r; i++) {
-            int u = edges[i].first, v = edges[i].second;
-            if(edges[i].first != edges[i].second) {
-                    // cout << "edge: (" << (edges[i].first+1) << "," << (edges[i].second+1) << ")" << endl;
+        for(;end <= qq.r; end++) {
+            int u = edges[end].first, v = edges[end].second;
+            if(edges[end].first != edges[end].second) {
                 if(findRoot(&graph[u]) == findRoot(&graph[v])) {
-                        // cout << "m" << endl;
                     int ei = calcPav(&graph[u], &graph[v]);
-                    // cout << "edge: " << edges[ei-n].first << "," << edges[ei-n].second << endl;
                     int eil1 = edges[ei-n].first, eil2 = edges[ei-n].second;
                     cut(&graph[eil1], &graph[ei]), cut(&graph[eil2], &graph[ei]);
-                            // cout << "n" << endl;
                     setV(ei-n+1, -1);
-                            // cout << "o" << endl;
                 }
 
-                        // cout << "p" << endl;
-                        // cout << (n+i) << " < " << (n+m) << endl;
-                link(&graph[u], &graph[n+i]), link(&graph[v], &graph[n+i]);
-                        // cout << "q" << endl;
-                setV(i+1, 1);
-                        // cout << "r" << endl;
+                link(&graph[u], &graph[n+end]), link(&graph[v], &graph[n+end]);
+                setV(end+1, 1);
             }
         }
-        end = qq.r + 1;
 
-        // cout << "y" << endl;
         int ce = getRange(qq.l+1, qq.r+1);
-        // cout << "z" << endl;
         result[qq.idx] = (n - ce);
     }
 
